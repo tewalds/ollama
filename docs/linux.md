@@ -78,6 +78,13 @@ Environment="PATH=$PATH"
 WantedBy=multi-user.target
 ```
 
+If you want to customize your model directory (or set any other options), create a service override file `/etc/systemd/system/ollama.service.d/override.conf`. This is separate from the main service file which would be replaced if you upgrade versions automatically in the future.
+
+```ini
+[Service]
+Environment="OLLAMA_MODELS=/data/ollama/"
+```
+
 Then start the service:
 
 ```shell
